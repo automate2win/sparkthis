@@ -31,3 +31,11 @@ Template[getTemplate('post_item')].helpers({
     return postClass;
   }
 });
+Template[getTemplate('post_item')].events({
+    'click  .remove':function(event){
+        // var selector = $(event.currentTarget).parent().parent().parent().find(".popEach");
+        // var selector = $(this.currentTarget).parent().parent().parent();
+        $(".popEach").css("display","none");
+        // console.log(selector)
+    }
+})

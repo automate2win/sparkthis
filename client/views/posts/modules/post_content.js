@@ -34,3 +34,11 @@ Template[getTemplate('postContent')].helpers({
     return this.comments == 1 ? i18n.t('comment') : i18n.t('comments');
   }
 });
+Template[getTemplate('postContent')].events({
+    'click .arrows .glyphicon-circle-arrow-down': function(){
+        console.log("down")
+    },
+    'click .arrows .glyphicon-circle-arrow-up': function(events){
+        console.log(events)
+    },
+})
