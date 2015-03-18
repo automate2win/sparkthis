@@ -5,21 +5,31 @@
 <h6>
     Want something built? Chaces are you aren't alone. Voice what you want and let community back you (backing with funds coming soon). Teams will pitch for the chance to build your idea and you keep 3%. Who said an idea isn't worth anything?
 </h6>
-	<div class="post-upvote  inline">         
-	    <a class="upvote-link" href="#" style="width:30%;float:left">
-	      <i class="action-icon huge" aria-hidden="true">1</i>Post Your Idea
-	      
+
+	<div class="inline">         
+		<p>
+	    <a class="" href="#" style="width:30%;float:left">	  
+	      <button type="button" class="btn  btn-circle btn-xl"><i class="glyphicon glyphicon-ok">1</i></button>
+	      Post Your Idea
 	    </a>
-	    <a class="upvote-link" href="#" style="width:30%;float:left">
-	      <i class="action-icon" aria-hidden="true">2</i>Vote For Ideas
+	    </p>
+	    <a class="" href="#" style="width:30%;float:left">
+			<button type="button" class="btn  btn-circle btn-xl"><i class="glyphicon glyphicon-ok">2</i></button> Vote Your Idea
 	    </a>    
+<<<<<<< HEAD
+	    <a class="" href="#" style="width:30%;float:left;">
+			<button type="button" class="btn  btn-circle btn-xl"><i class="glyphicon glyphicon-ok">3</i></button> Team Pitch to Build Ideas
+=======
 	    <a class="upvote-link" href="#" style="width:30%;float:left">
 	      <i class="action-icon " aria-hidden="true">3</i>Team Pitch to Build Ideas
+>>>>>>> 0f8b3b04c7578d403bf7b61f731c1c59b64f6d31
 	      
 	    </a>    
     </div>
 </template>
 <template name="at3">
+
+	
 </template>
 <template name="at5">
 </template>
