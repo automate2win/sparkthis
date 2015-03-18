@@ -13,12 +13,22 @@ Template[getTemplate('userMenu')].helpers({
   }
 });
 Template[getTemplate('userMenu')].events({
-    'facebookLogin': function(e){
-        console.log("facebookLogin")
-    },
-    'twitterLogin': function(e){
-        console.log("twitterLogin")
+    'click #facebookLogin': function(e){
+      console.log("vsdjbvkjsjdbvkjsdbkj")
+        Meteor.loginWithFacebook({}, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            }
+        });
 
+    },
+    'click #twitterLogin': function(e){
+        console.log("twitterLogin")
+        Meteor.loginWithTwitter({}, function(err){
+            if (err) {
+                throw new Meteor.Error("twitter login failed");
+            }
+        });
     },
 
 });

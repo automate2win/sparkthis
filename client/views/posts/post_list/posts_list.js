@@ -26,6 +26,7 @@ Template[getTemplate('posts_list')].helpers({
         post.rank = index;
         return post;
       });
+      // console.log(posts)
       return posts;
     } else {
       console.log('postsCursor not defined')

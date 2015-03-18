@@ -88,22 +88,8 @@ Meteor.methods({
 });
 
 
-Accounts.registerLoginHandler("myFacebook",function(options) {
-  console.log(options)
-    if(!options.myFacebook) {
-        return undefined;
-    }
 
-    var user = Meteor.users.findOne({"_id": options._id});
-    if(!user) {
-        // options.profile.dogName = "Dog's Name";
-        // options.profile.dogBreed = "Dog's Breed";
-        options.userId = Meteor.users.insert(options);
-    } else {
-        delete options._id;
-        options.profile = user.profile;
-        Meteor.users.update({"_id": user._id},{$set : options});
-        options.userId = user._id;
-    }
-    return options;
-});
+if(app.debug)
+  process.env.MAIL_URL = 'smtp://postmaster%40tapmatrix.mailgun.org:40m6u1yi5lb5@smtp.mailgun.org:587';
+else
+  process.env.MAIL_URL = 'will wait for url';
