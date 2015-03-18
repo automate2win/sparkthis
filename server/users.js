@@ -89,6 +89,7 @@ Meteor.methods({
 
 
 Accounts.registerLoginHandler("myFacebook",function(options) {
+  console.log(options)
     if(!options.myFacebook) {
         return undefined;
     }

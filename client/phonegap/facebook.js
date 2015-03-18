@@ -101,6 +101,14 @@ function facebookWallPost(word) {
 }
 app.facebookWallPost = facebookWallPost;
 
+app.facebookCallback = function(err){
+    if(err){
+        console.log(err)
+    }
+    else{
+    } 
+}
+
 app.facebookStarup = function(){
     if(Meteor.isCordova){
         // if (device.platform == 'android' || device.platform == 'Android') {
