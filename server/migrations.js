@@ -11,6 +11,11 @@ Meteor.startup(function () {
   });
 });
 
+
+
+
+
+///zvavasva
 Meteor.methods({
   removeMigration: function (name) {
     if (isAdmin(Meteor.user())) {
