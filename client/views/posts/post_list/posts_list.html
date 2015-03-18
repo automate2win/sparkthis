@@ -11,4 +11,26 @@
     </div>
     {{> UI.dynamic template=postsLoadMore}}
   </div>
+  {{> popup_post}}
+</template>
+<template name="popup_post">
+        <div class="popEach">
+            <ul class="list-inline text-center ">
+            <li>
+                If this existed I'd be willing to pay:          
+            </li>
+            <li>
+                <input type="text" class="" id="" placeholder="address" >       
+            </li>
+            <li>
+                 <button type="button" class="btn  ">One Time</button>
+            </li>
+            <li>
+                 <button type="button" class="btn  ">Monthly</button>
+            </li>
+            <li>
+                <div class="remove">x</div>
+            </li>
+        </ul>   
+        </div>
 </template>

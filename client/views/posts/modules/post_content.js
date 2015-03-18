@@ -39,6 +39,8 @@ Template[getTemplate('postContent')].events({
         console.log("down")
     },
     'click .arrows .glyphicon-circle-arrow-up': function(events){
-        console.log(events)
+        // var cursor = $(event.currentTarget).parent().parent().parent()
+        // console.log(cursor)
+        $(".popEach").css("display","block");
     },
 })

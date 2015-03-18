@@ -1,23 +1,4 @@
 <template name="post_item">
-    <div class="popEach ">
-	    <ul class="list-inline text-center ">
-			<li>
-				If this existed I'd be willing to pay:			
-			</li>
-			<li>
-	    		<input type="text" class="" id="" placeholder="address" >		
-			</li>
-			<li>
-				 <button type="button" class="btn btn-warning ">One Time</button>
-			</li>
-			<li>
-				 <button type="button" class="btn btn-warning ">Monthly</button>
-			</li>
-			<li>
-				<button type="button" class="btn "><i class=" remove glyphicon glyphicon-remove"></i></button>
-			</li>
-	    </ul>    		
-    </div>
   <div class="post {{#if sticky}}sticky{{/if}} {{inactiveClass}} {{postClass}}" id="{{_id}}">
       {{#each postModules}}
         <div class="{{moduleClass}}">
@@ -26,3 +7,4 @@
       {{/each}}
   </div>
 </template>
+

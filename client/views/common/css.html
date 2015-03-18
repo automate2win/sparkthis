@@ -81,22 +81,62 @@
         width: 25%;
         float: left;
       }
+      .popEach .remove{
+          font-weight: bold;
+          color:  #DD3416;
+          border: 1px solid #DD3416;
+          width: 40px;
+          height: 40px;
+          padding: 1px 10px;
+          font-size: 24px;
+          line-height: 1.33;
+          border-radius: 35px;
+          /*margin-right: -50px;*/
+      }
+      .popEach li{
+          margin:0px !important; 
+      }
       .popEach button{
-          border: 0px;
+          border-radius: 0px !important;
+          border: 0px !important;
           background: #DD3416;
       }
       .popEach{
           /*border: 1px solid grey;*/
+          position: fixed;
           background: white;
-          padding: 0px;
+          padding: 5px 10px;
           margin-bottom: 2px;
           margin-top: 2px;
-          /*display: none;*/
+          display: none;
           -webkit-box-shadow: 0px 0px 10px -2px rgba(0,0,0,1);
           -moz-box-shadow: 0px 0px 10px -2px rgba(0,0,0,1);
           box-shadow: 0px 0px 10px -2px rgba(0,0,0,1);
+          top: 30%;
+          left: 20%;
       }
-
+      /*  pops **/
+      .modal-static { 
+          position: fixed;
+          top: 50% !important; 
+          left: 50% !important; 
+          margin-top: -100px;  
+          margin-left: -100px; 
+          overflow: visible !important;
+      }
+      .modal-static,
+      .modal-static .modal-dialog,
+      .modal-static .modal-content {
+          width: 200px; 
+          height: 200px; 
+      }
+      .modal-static .modal-dialog,
+      .modal-static .modal-content {
+          padding: 0 !important; 
+          margin: 0 !important;
+      }
+      .modal-static .modal-content .icon {
+      }
       {{hideAuthClass}}
 
   </style>
