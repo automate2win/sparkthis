@@ -21,7 +21,7 @@ http
 # Atmosphere Packages
 
 iron:router
-
+twbs:bootstrap
 meteorhacks:fast-render
 meteorhacks:subs-manager
 meteorhacks:npm
