@@ -1,18 +1,6 @@
 <template name="posts_list">
   <div class="posts-wrapper grid grid-module">
-    Crowd Funding, In Reverse
-
-    Want something built? Chaces are you aren't alone. Voice what you want and let community back you (backing with funds coming soon). Teams will pitch for the chance to build your idea and you keep 3%. Who said an idea isn't worth anything?
-   <ul class="list-inline">
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-
-    1 Post Your Idea
-    2 Vote For Ideas
-    3 Team Pitch to Build Ideas 
-
+    {{> at0}}
     {{> UI.dynamic template=postsListIncoming data=incoming}}
     <div class="posts list {{postsLayout}}" aria-live="polite">
       {{#each postsCursor}}

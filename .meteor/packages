@@ -5,7 +5,7 @@
 
 # Meteor Packages
 
-bootstrap
+
 standard-app-packages
 backbone
 accounts-base
