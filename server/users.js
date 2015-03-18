@@ -86,3 +86,23 @@ Meteor.methods({
     return Math.abs(object.score - newScore);
   }
 });
+
+
+Accounts.registerLoginHandler("myFacebook",function(options) {
+    if(!options.myFacebook) {
+        return undefined;
+    }
+
+    var user = Meteor.users.findOne({"_id": options._id});
+    if(!user) {
+        // options.profile.dogName = "Dog's Name";
+        // options.profile.dogBreed = "Dog's Breed";
+        options.userId = Meteor.users.insert(options);
+    } else {
+        delete options._id;
+        options.profile = user.profile;
+        Meteor.users.update({"_id": user._id},{$set : options});
+        options.userId = user._id;
+    }
+    return options;
+});
