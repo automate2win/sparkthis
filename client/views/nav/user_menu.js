@@ -12,3 +12,13 @@ Template[getTemplate('userMenu')].helpers({
     return Router.path('user_edit', {slug: Meteor.user().slug});
   }
 });
+Template[getTemplate('userMenu')].events({
+    'facebookLogin': function(e){
+        console.log("facebookLogin")
+    },
+    'twitterLogin': function(e){
+        console.log("twitterLogin")
+
+    },
+
+});
