@@ -8,14 +8,18 @@
                     {{> UI.dynamic template=getTemplate data=..}}
                 {{/each}}
             </h3>
+            <h3 class="post-bodyText">
+                {{ postBodyText}}
+                  
+            </h3>
             <div class="post-meta">
                 {{#each postMeta}}
                 {{> UI.dynamic template=getTemplate data=..}}
                 {{/each}}
             </div>
             <div class="arrows">        
-                <span class="glyphicon glyphicon-circle-arrow-down marginRight10" aria-hidden="true">text </span>  
-                <span class="glyphicon glyphicon-circle-arrow-up marginRight10" aria-hidden="true">text </span>
+                <span class="glyphicon glyphicon-circle-arrow-down marginRight10" aria-hidden="true">{{arrow_down}} </span>  
+                <span class="glyphicon glyphicon-circle-arrow-up marginRight10" aria-hidden="true">{{arrow_up}} </span>
             </div>
         </div>
      <!--  <div class="popus inline">

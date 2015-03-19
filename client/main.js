@@ -5,6 +5,7 @@ Session.set('postsLimit', getSetting('postsPerPage', 10));
 postModules = _.sortBy(postModules, 'order');
 
 postHeading = _.sortBy(postHeading, 'order');
+postBodyText = _.sortBy(postHeading, 'order');
 
 postMeta = _.sortBy(postMeta, 'order');
 

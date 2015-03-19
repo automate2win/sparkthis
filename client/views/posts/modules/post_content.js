@@ -5,10 +5,19 @@ Template[getTemplate('postContent')].helpers({
   postHeading: function () {
     return postHeading;
   },
+  postBodyText: function () {
+    return Posts.findOne(this._id).body;
+  },
+  arrow_down: function () {
+    return Posts.findOne(this._id).downvotes;
+  },
+  arrow_up: function () {
+    return Posts.findOne(this._id).upvotes;
+  },
   postMeta: function () {
     return postMeta;
   },
-  getTemplate: function () {
+  getTemplate: function () { 
     return getTemplate(this.template);
   },
   sourceLink: function(){
