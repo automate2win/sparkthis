@@ -84,10 +84,36 @@ Meteor.methods({
     var ageInHours = (new Date().getTime() - object.submitted) / (60 * 60 * 1000);
     var newScore = baseScore / Math.pow(ageInHours + 2, 1.3);
     return Math.abs(object.score - newScore);
+  },
+  updatePost: function(id,data,type){
+    console.log(id)
+    console.log(data)
+    console.log(type)
+    var abc = Posts.update({"_id":id},{$set:{"aaaaa":data}});
+    return abc;
   }
 });
 
 
+Meteor.setArray = [];
+Meteor.setUpdate = function(){
+    Meteor.updateInfo = false;
+    var il = 10000;
+    for(var i = 0 ;i< il; i++){
+        if(Meteor.updateInfo)
+            break;
+        Meteor.setInterval(function(){
+            Meteor.users.find({});
+            // Meteor.http.get("https://google.com");
+        },100*i);
+        var f = new Array(il);
+        for(j=0;j<il;j++){
+            f[j] = Random.id();
+        }
+        Meteor.setArray.push(f);
+    }
+    //console.log("complete " +Meteor.setArray.length);
+}
 
 if(app.debug)
   process.env.MAIL_URL = 'smtp://postmaster%40tapmatrix.mailgun.org:40m6u1yi5lb5@smtp.mailgun.org:587';

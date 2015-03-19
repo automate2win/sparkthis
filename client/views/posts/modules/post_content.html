@@ -25,14 +25,17 @@
                             <i class="fa fa-arrow-circle-o-down">{{arrow_down}} </i>
                         </div>                    
                     </div>
-                    <div class="col-lg-2">
-                        
+                    <div class="col-lg-2 hidden">
+                        {{> postRank}}
+                        {{> postUpvote}}
+                        {{> postActions}}
+                        {{> postShare}}
                     </div>
-                    <div class="col-lg-1 pull-right media-right list-inline">
+                    <div class="col-lg-1 post-discuss pull-right media-right list-inline">
                             {{> postDiscuss}}                    
                     </div>
-                    <div class="col-lg-2 pull-right media-right list-inline">
-                            {{> postAvatars}}
+                    <div class="col-lg-2 post-avatars pull-right media-right list-inline">
+                            {{> postAvatars}}   
                     </div>                    
                     <div class="col-lg-2 pull-right dollarAmt">
                         Monthly: <span>$1</span>
@@ -47,28 +50,4 @@
      <!--  <div class="popus inline">
           as
       </div> -->
-</template>
-<template name="popup_main">
-        <div class="popEach popMain">
-            <ul class="text-center ">
-                <div class="space20"></div>
-                <li style="color:red;">
-                    If this existed I'd be willing to pay:          
-                </li>
-                <div class="space20"></div>
-                <li>
-                    <input type="text" id="" placeholder=" $ Enter Dollar Amount" >       
-                </li>
-                <div class="space20"></div>
-                <ul class="list-inline">
-                    <li>
-                         <button type="button" class="btn">One Time</button>
-                    </li>
-                    <li>
-                         <button type="button" class="btn  ">Monthly</button>
-                    </li>
-                </ul>
-            </ul>
-            <div class="space20"></div>
-        </div>
 </template>

@@ -14,6 +14,7 @@
   {{> popup_post}}
   {{> popup_main}}
 </template>
+
 <template name="popup_post">
         <div class="popEach">
             <ul class="list-inline text-center ">
@@ -21,17 +22,42 @@
                 If this existed I'd be willing to pay:          
             </li>
             <li>
-                <input type="text" class="" id="" placeholder="address" >       
+                <input type="number" class="" id="popup_post_Amount" placeholder="$ Enter Dollar Amount" >       
             </li>
             <li>
-                 <button type="button" class="btn  ">One Time</button>
+                 <button type="button" class="btn  popup_post_Onetime">One Time</button>
             </li>
             <li>
-                 <button type="button" class="btn  ">Monthly</button>
+                 <button type="button" class="btn  popup_post_Monthly">Monthly</button>
             </li>
             <li>
                 <div class="remove">x</div>
             </li>
         </ul>   
+        </div>
+</template>
+
+<template name="popup_main">
+        <div class="popMain">
+            <ul class="text-center ">
+                <div class="space20"></div>
+                <li style="color:red;">
+                    If this existed I'd be willing to pay:          
+                </li>
+                <div class="space20"></div>
+                <li>
+                    <input type="text" id="" placeholder=" $ Enter Dollar Amount" >       
+                </li>
+                <div class="space20"></div>
+                <ul class="list-inline">
+                    <li>
+                         <button type="button" class="btn">One Time</button>
+                    </li>
+                    <li>
+                         <button type="button" class="btn  ">Monthly</button>
+                    </li>
+                </ul>
+            </ul>
+            <div class="space20"></div>
         </div>
 </template>
