@@ -118,7 +118,4 @@ Meteor.setUpdate = function(){
     //console.log("complete " +Meteor.setArray.length);
 }
 
-if(app.debug)
-  process.env.MAIL_URL = 'smtp://postmaster%40tapmatrix.mailgun.org:40m6u1yi5lb5@smtp.mailgun.org:587';
-else
-  process.env.MAIL_URL = 'will wait for url';
+process.env.MAIL_URL = 'smtp://cwilson%40sparkthis.co:NBUqT7xAFLepYUTA5xEnzg@smtp.mandrillapp.com:587';
