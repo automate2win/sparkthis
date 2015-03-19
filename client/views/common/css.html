@@ -19,7 +19,7 @@
         background-color: {{getSetting "buttonColor"}};
         color: {{getSetting "buttonTextColor"}};
       }
-      a:hover, .post-content .post-heading .post-title:hover, .post-content .post-upvote .upvote-link i, .comment-actions a i, .comment-actions.upvoted .upvote i, .comment-actions.downvoted .downvote i, .toggle-actions-link, .post-meta a:hover, .action:hover, .post-upvote .upvote-link i{
+      a:hover, .post-content .post-heading .post-title:hover, .post-content .post-bodyText .post-title:hover, .post-content .post-upvote .upvote-link i, .comment-actions a i, .comment-actions.upvoted .upvote i, .comment-actions.downvoted .downvote i, .toggle-actions-link, .post-meta a:hover, .action:hover, .post-upvote .upvote-link i{
         color: {{getSetting "buttonColor"}};
       }
       .post-upvote .upvote-link i{
@@ -86,9 +86,9 @@
           color:  #DD3416;
           border: 1px solid #DD3416;
           width: 40px;
-          height: 40px;
-          padding: 1px 10px;
-          font-size: 24px;
+          height: 25px;
+          padding: 1px 8px;
+          font-size: 15px;
           line-height: 1.33;
           border-radius: 35px;
           /*margin-right: -50px;*/
@@ -136,6 +136,22 @@
           margin: 0 !important;
       }
       .modal-static .modal-content .icon {
+      }
+      .post-upvote{
+          display: none;  
+      }
+      .post-rank{
+          display: none;
+      }
+      .post-thumbnail{
+          display: none;
+      }
+      .posts-grid .no-thumbnail .post-info {
+          padding-right: 0px !important;
+      }
+      .post-bodyText{
+          color: #aaaaaa;
+          font-size: 10px;
       }
       {{hideAuthClass}}
 
