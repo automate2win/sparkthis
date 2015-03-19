@@ -1,18 +1,24 @@
 <template name="postContent">
-    {{#each postThumbnail}}
-      {{> UI.dynamic template=getTemplate data=..}}
-    {{/each}}
-    <div class="post-info">
-      <h3 class="post-heading">
-        {{#each postHeading}}
-          {{> UI.dynamic template=getTemplate data=..}}
+        {{#each postThumbnail}}
+            {{> UI.dynamic template=getTemplate data=..}}
         {{/each}}
-      </h3>
-      <div class="post-meta">
-        {{#each postMeta}}
-          {{> UI.dynamic template=getTemplate data=..}}
-        {{/each}}
-      </div>
-      <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
-    </div>
+        <div class="post-info">
+            <h3 class="post-heading">
+                {{#each postHeading}}
+                    {{> UI.dynamic template=getTemplate data=..}}
+                {{/each}}
+            </h3>
+            <div class="post-meta">
+                {{#each postMeta}}
+                {{> UI.dynamic template=getTemplate data=..}}
+                {{/each}}
+            </div>
+            <div class="arrows">        
+                <span class="glyphicon glyphicon-circle-arrow-down marginRight10" aria-hidden="true">text </span>  
+                <span class="glyphicon glyphicon-circle-arrow-up marginRight10" aria-hidden="true">text </span>
+            </div>
+        </div>
+     <!--  <div class="popus inline">
+          as
+      </div> -->
 </template>

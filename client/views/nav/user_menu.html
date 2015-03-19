@@ -11,10 +11,20 @@
       </div>
     </div>
   {{else}}
-    <a class="account-link sign-in" href="{{pathFor route='atSignUp'}}">{{_ "sign_up"}}</a>
-    <a class="account-link sign-up" href="{{pathFor route='atSignIn'}}">{{_ "sign_in"}}</a>
-    <a class="account-link sign-in" href="" id="facebookLogin">Facebook</a>
-    <a class="account-link sign-in" href="" id="twitterLogin">Twitter</a>
+      <ul class="list-inline">
+          <li>            
+              <a class="account-link sign-in" href="{{pathFor route='atSignUp'}}">{{_ "sign_up"}}</a>
+          </li>
+          <li>
+              <a class="account-link sign-up marginRight10" href="{{pathFor route='atSignIn'}}">{{_ "sign_in"}}</a>            
+          </li>
+          <li>
+              <a class="account-link marginRight10" href="" id="facebookLogin">Facebook</a>            
+          </li>
+          <li>
+              <a class="account-link marginRight10" href="" id="twitterLogin">Twitter</a>
+          </li>
+      </ul>
   {{/if}}
 
 </template>
