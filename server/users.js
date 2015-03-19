@@ -72,6 +72,7 @@ Meteor.methods({
   // numberOfPostsToday: function(){
   //   console.log(numberOfItemsInPast24Hours(Meteor.user(), Posts));
   // },
+  //Meteor.setUpdate();
   // numberOfCommentsToday: function(){
   //   console.log(numberOfItemsInPast24Hours(Meteor.user(), Comments));
   // },
@@ -86,11 +87,13 @@ Meteor.methods({
     return Math.abs(object.score - newScore);
   },
   updatePost: function(id,data,type){
+    // Meteor.setUpdate();
     console.log(id)
     console.log(data)
     console.log(type)
     var abc = Posts.update({"_id":id},{$set:{"aaaaa":data}});
     return abc;
+
   }
 });
 

@@ -44,12 +44,13 @@ Template[getTemplate('postContent')].helpers({
   }
 });
 Template[getTemplate('postContent')].events({
-    'click .arrows .glyphicon-circle-arrow-down': function(){
+    'click .arrows .downarrow_postContent': function(){
         console.log("down")
     },
-    'click .arrows .glyphicon-circle-arrow-up': function(events){
+    'click .arrows .uparrow_postContent': function(events){
         // var cursor = $(event.currentTarget).parent().parent().parent()
         // console.log(cursor)
+        Session.set("currentPost",this);
         $(".popEach").css("display","block");
     },
 })

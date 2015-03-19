@@ -18,7 +18,7 @@ Template[getTemplate('nav')].helpers({
     return getTemplate(this.template);
   },
   site_title: function(){
-    return getSetting('title', "Telescope");
+    return getSetting('title', "SparkThis.io");
   },
   logo_url: function(){
     return getSetting('logoUrl');
