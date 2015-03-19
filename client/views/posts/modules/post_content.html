@@ -17,11 +17,27 @@
                 {{> UI.dynamic template=getTemplate data=..}}
                 {{/each}}
             </div>
-            <div class="arrows">        
-                <span class="glyphicon glyphicon-circle-arrow-down marginRight10" aria-hidden="true">{{arrow_down}} </span>  
-                <span class="glyphicon glyphicon-circle-arrow-up marginRight10" aria-hidden="true">{{arrow_up}} </span>
+            <div class="row itemFoot">
+                <div class="col-lg-12">                
+                    <div class="col-lg-3">
+                        <div class="arrows">        
+                            <i class="fa fa-arrow-circle-o-up fa-3">{{arrow_up}} </i>
+                            <i class="fa fa-arrow-circle-o-down">{{arrow_down}} </i>
+                        </div>                    
+                    </div>
+                    <div class="col-lg-3">
+                        
+                    </div>
+                    <div class="col-lg-2 pull-right media-right list-inline">
+                            {{> postDiscuss}}                    
+                    </div>
+                    <div class="col-lg-4 pull-right media-right list-inline">
+                            {{> postAvatars}}
+                    </div>
+                </div>
             </div>
         </div>
+
      <!--  <div class="popus inline">
           as
       </div> -->

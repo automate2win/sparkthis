@@ -20,7 +20,7 @@ reactive-var
 http
 
 # Atmosphere Packages
-
+natestrauser:font-awesome
 iron:router
 twbs:bootstrap
 meteorhacks:fast-render
