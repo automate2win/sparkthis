@@ -40,7 +40,6 @@ sacha:spin
 sacha:juice
 chuangbo:marked
 percolatestudio:synced-cron
-npm-container
 matb33:collection-hooks
 djedi:sanitize-html
 rajit:bootstrap3-datepicker
@@ -91,3 +90,6 @@ telescope-tagline-banner
 # Custom Packages
 sparkthis
 meteorhacks:kadira
+
+
+npm-container
