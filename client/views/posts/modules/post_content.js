@@ -1,7 +1,7 @@
 Template[getTemplate('postContent')].helpers({
-  postThumbnail: function () {
-    return postThumbnail;
-  },
+  // postThumbnail: function () {
+  //   return postThumbnail;
+  // },
   postHeading: function () {
     return postHeading;
   },
@@ -14,9 +14,9 @@ Template[getTemplate('postContent')].helpers({
   arrow_up: function () {
     return Posts.findOne(this._id).upvotes;
   },
-  postMeta: function () {
-    return postMeta;
-  },
+  // postMeta: function () {
+  //   return postMeta;
+  // },
   getTemplate: function () { 
     return getTemplate(this.template);
   },

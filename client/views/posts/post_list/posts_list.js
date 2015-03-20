@@ -53,6 +53,7 @@ Template[getTemplate('popup_post')].events({
         console.log(err)
         console.log(data);
       });
+      // Earn.insert({"PostId":cursor._id, "Onetime":data});
       $(".popEach").css("display","none");
       // console.log(cursor._id+"onetime")
   },
