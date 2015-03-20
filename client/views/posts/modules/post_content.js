@@ -63,11 +63,14 @@ Template[getTemplate('postContent')].events({
 
 
     },
-    'click .arrows .uparrow_postContent': function(events){
-        var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")
-        console.log(cursor)
+    'click .arrows .uparrow_postContent': function(events,tpl){
+        // app.test = tpl;
+        // console.log(tpl);
+        $(tpl.find(".popEach")).css("display","block");
+        // var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")
+        // console.log(cursor)
         Session.set("currentPost",this);
-        $(cursor).css("display","block");
+        // $(cursor).css("display","block");
         var post = this;
         events.preventDefault();
         if(!Meteor.user()){
