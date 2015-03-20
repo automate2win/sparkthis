@@ -139,11 +139,6 @@ postSchemaObject = {
   //   type: Object, // XXX
   //   optional: true
   // },
-  earn: {
-    type: [Object],
-    optional: true,
-    blackbox: true
-  },
   // montlyHigh: {
   //   type: Number,
   //   optional: true
@@ -226,7 +221,11 @@ postSchemaObject = {
   amount: {
     type: Number,
     optional: true
-  }
+  },
+  earn: {
+    type: [Object],
+    optional: true,
+  },
 };
 
 // add any extra properties to postSchemaObject (provided by packages for example)

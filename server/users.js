@@ -158,8 +158,9 @@ Meteor.methods({
       else
         array.oneTimeLow = parseInt(data[0].amount)
         // abc = Posts.update({"_id":id},{$set:{"earn":array}});
+
         console.log(array)
-        Posts.update({"_id":id},{$set:{"earn.montlyHigh":array.montlyHigh,"earn.montlyLow":array.montlyLow,"earn.oneTimeHigh":array.oneTimeHigh,"earn.oneTimeLow":array.oneTimeLow}});     
+        Posts.update({"_id":id},{$push: {"earn" :{"montlyHigh":array.montlyHigh,"montlyLow":array.montlyLow}}});     
     }
     
     return abc;
