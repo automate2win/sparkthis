@@ -64,10 +64,10 @@ Template[getTemplate('postContent')].events({
 
     },
     'click .arrows .uparrow_postContent': function(events){
-        // var cursor = $(event.currentTarget).parent().parent().parent()
-        // console.log(cursor)
+        var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")
+        console.log(cursor)
         Session.set("currentPost",this);
-        $(".popEach").css("display","block");
+        $(cursor).css("display","block");
         var post = this;
         events.preventDefault();
         if(!Meteor.user()){
