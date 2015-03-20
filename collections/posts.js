@@ -222,6 +222,10 @@ postSchemaObject = {
         });
       }
     }
+  },
+  amount: {
+    type: Number,
+    optional: true
   }
 };
 
@@ -317,9 +321,13 @@ Posts.before.insert(function (userId, doc) {
 
 Posts.before.update(function (userId, doc, fieldNames, modifier, options) {
   // if body is being modified, update htmlBody too
+  // console.log(Meteor.isServer , modifier.$set,  modifier.$set.body)
+  console.log(modifier)
   if (Meteor.isServer && modifier.$set && modifier.$set.body) {
     modifier.$set.htmlBody = sanitize(marked(modifier.$set.body));
   }
+  // console.log(doc)
+
 });
 
 postAfterSubmitMethodCallbacks.push(function (post) {
