@@ -10,45 +10,65 @@
 <!-- 	    <div class="posts posts-list">
 	      {{> UI.dynamic template=post_item}}
 	    </div> -->
-	    <div class="row">
+	    <div class="">
 
-	    	<div class=" post-info">
-	    		<div class=" itemFoot">
-                <div class="col-lg-12">                
-                    <div class="col-lg-3">
-                        <div class="arrows">        
-                            <i class="fa fa-arrow-circle-o-up fa-3 uparrow_postContent  marginRight10"> </i>{{arrow_up}}
-                            <i class="fa fa-arrow-circle-o-down downarrow_postContent marginLeft20 marginRight10"> </i>{{arrow_down}}
-                        </div>                    
-                    </div>
-                    <div class="col-lg-2 hidden">
-                        <!-- {{> postRank}} -->
-                        <!-- {{> postUpvote}} -->
-                        <!-- {{> postActions}} -->
-                        <!-- {{> postShare}} -->
-                    </div>
-                    <div class="col-lg-1 post-discuss pull-right media-right list-inline">
-                            {{> postDiscuss}}                    
-                    </div>
-                    <div class="col-lg-2 post-avatars pull-right media-right list-inline">
-                            {{> postAvatars}}   
-                    </div>                    
-                    <div class="col-lg-2 pull-right dollarAmt">
-                        <div class="col-lg-6 DollarText">Monthly:</div>
-                        <div class="col-lg-6 font28 dollarAmts">$1</div>
-                    </div>              
-                    <div class="col-lg-2 pull-right dollarAmt">
-                        <div class="col-lg-6 DollarText">One Time:</div>
-                        <div class="col-lg-6 font28 dollarAmts">$1</div>
-                    </div>
-                </div>
-            </div>
+	    	<div class=" post-info {{author}}">
+	    		<div class="row itemFoot">
+	                <div class="col-lg-12 grey">                
+			    		<div class="col-lg-12 font28 fontBlack">
+			    			{{title}}
+			    		</div>
+			    		<div class="col-lg-12 ">
+			    			Posted {{timeAgo postedAt}} by {{displayName userId}}
+			    		</div>
+
+			    			<!-- {{>postInfo}} -->
+				    		<!-- <div class="post-meta">
+				                {{#each postMeta}}
+				                	{{> UI.dynamic template=getTemplate data=..}}
+				                {{/each}}
+				            </div> -->
+	                    <div class="col-lg-3">
+	                        <div class="arrows">        
+	                            <i class="fa fa-arrow-circle-o-up fa-3 uparrow_postContent  marginRight10"> </i>{{arrow_up}}
+	                            <i class="fa fa-arrow-circle-o-down downarrow_postContent marginLeft20 marginRight10"> </i>{{arrow_down}}
+	                        </div>                    
+	                    </div>
+	                    <div class="col-lg-2 hidden">
+	                        <!-- {{> postRank}} -->
+	                        <!-- {{> postUpvote}} -->
+	                        <!-- {{> postActions}} -->
+	                        <!-- {{> postShare}} -->
+	                    </div>
+	                    <div class="col-lg-1 post-discuss pull-right media-right list-inline">
+	                            {{> postDiscuss}}                    
+	                    </div>
+	                    <div class="col-lg-2 post-avatars pull-right media-right list-inline">
+	                            {{> postAvatars}}   
+	                    </div>  
+	                    {{#if montlyAverage}}                  
+	                    <div class="col-lg-2 pull-right dollarAmt">
+	                        <!-- <div class="col-lg-6 DollarText">Monthly:</div> -->
+	                        <!-- <div class="col-lg-6 font28 dollarAmts">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div> -->
+	                    </div> 
+	                    {{/if}} 
+	                    {{#if oneTimeAverage}}            
+	                    <div class="col-lg-2 pull-right dollarAmt">
+	                        <!-- <div class="col-lg-6 DollarText">One Time:</div> -->
+	                        <!-- <div class="col-lg-6 font28 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div> -->
+	                    </div>
+	                    {{/if}}
+	                </div>
+	            </div>
+	           	<div>
+	           		
+	           	</div>
+		    	<div class="">
+				   {{#if body}}
+				      {{> UI.dynamic template=post_body}}
+				    {{/if}}
+	    	 	</div>
 	    	</div>
-	    	<div class="row">
-			    <!-- {{#if body}}
-			      {{> UI.dynamic template=post_body}}
-			    {{/if}}
- -->	    	</div>
 	    </div>
 	      <!-- 
 	    {{> UI.dynamic template=comment_form}}
