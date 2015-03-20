@@ -3,10 +3,11 @@
     <div class="posts posts-list">
       {{> UI.dynamic template=post_item}}
     </div>
+      
     {{#if body}}
       {{> UI.dynamic template=post_body}}
     {{/if}}
     {{> UI.dynamic template=comment_form}}
-    {{> UI.dynamic template=comment_list}}
+    {{> UI.dynamic template=comment_list}}  
   </div>
 </template>

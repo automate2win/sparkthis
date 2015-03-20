@@ -53,4 +53,10 @@ Template[getTemplate('postContent')].events({
         Session.set("currentPost",this);
         $(".popEach").css("display","block");
     },
+    'click .dollarAmt': function(){
+        console.log(this)
+        // Router.go("postDescription/"+this._id)
+         Router.go('postDescription', {_id: this._id});
+        // Router.go("postDescription")
+    },
 })
