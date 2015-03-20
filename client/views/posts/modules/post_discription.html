@@ -1,6 +1,6 @@
 <template name="post_description">
 	<div class="post-info">
-    	<h3 class="post-heading font28">
+    	<h3 class="post-heading font24">
                 {{#each postHeading}}
                     {{> UI.dynamic template=getTemplate data=..}}
                 {{/each}}
@@ -15,7 +15,7 @@
 	    	<div class=" post-info {{author}}">
 	    		<div class="row itemFoot">
 	                <div class="col-lg-12 grey">                
-			    		<div class="col-lg-12 font28 fontBlack">
+			    		<div class="col-lg-12 font24 fontBlack">
 			    			{{title}}
 			    		</div>
 			    		<div class="col-lg-12 ">
@@ -28,40 +28,90 @@
 				                	{{> UI.dynamic template=getTemplate data=..}}
 				                {{/each}}
 				            </div> -->
-	                    <div class="col-lg-3">
-	                        <div class="arrows">        
-	                            <i class="fa fa-arrow-circle-o-up fa-3 uparrow_postContent  marginRight10"> </i>{{arrow_up}}
-	                            <i class="fa fa-arrow-circle-o-down downarrow_postContent marginLeft20 marginRight10"> </i>{{arrow_down}}
-	                        </div>                    
-	                    </div>
-	                    <div class="col-lg-2 hidden">
-	                        <!-- {{> postRank}} -->
-	                        <!-- {{> postUpvote}} -->
-	                        <!-- {{> postActions}} -->
-	                        <!-- {{> postShare}} -->
-	                    </div>
-	                    <div class="col-lg-1 post-discuss pull-right media-right list-inline">
-	                            {{> postDiscuss}}                    
-	                    </div>
-	                    <div class="col-lg-2 post-avatars pull-right media-right list-inline">
-	                            {{> postAvatars}}   
-	                    </div>  
-	                    {{#if montlyAverage}}                  
-	                    <div class="col-lg-2 pull-right dollarAmt">
-	                        <!-- <div class="col-lg-6 DollarText">Monthly:</div> -->
-	                        <!-- <div class="col-lg-6 font28 dollarAmts">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div> -->
-	                    </div> 
-	                    {{/if}} 
-	                    {{#if oneTimeAverage}}            
-	                    <div class="col-lg-2 pull-right dollarAmt">
-	                        <!-- <div class="col-lg-6 DollarText">One Time:</div> -->
-	                        <!-- <div class="col-lg-6 font28 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div> -->
-	                    </div>
-	                    {{/if}}
+						<div class="col-lg-12 backGrey">
+							
+		                    <div class="col-lg-3">
+		                        <div class="arrows">        
+		                            <i class="fa fa-arrow-circle-o-up fa-3 uparrow_postContent  marginRight10"> </i>{{arrow_up}}
+		                            <i class="fa fa-arrow-circle-o-down downarrow_postContent marginLeft20 marginRight10"> </i>{{arrow_down}}
+		                        </div>                    
+		                    </div>
+		                    <div class="col-lg-2 hidden">
+		                        <!-- {{> postRank}} -->
+		                        <!-- {{> postUpvote}} -->
+		                        <!-- {{> postActions}} -->
+		                        <!-- {{> postShare}} -->
+		                    </div>
+		                    <div class="col-lg-1 post-discuss pull-right media-right list-inline">
+		                            {{> postDiscuss}}                    
+		                    </div>
+		                    <div class="col-lg-2 post-avatars pull-right media-right list-inline">
+		                            {{> postAvatars}}   
+		                    </div>  
+		                    {{#if montlyAverage}}                  
+		                    <div class="col-lg-2 pull-right dollarAmt">
+		                        <!-- <div class="col-lg-6 DollarText">Monthly:</div> -->
+		                        <!-- <div class="col-lg-6 font24 dollarAmts">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div> -->
+		                    </div> 
+		                    {{/if}} 
+		                    {{#if oneTimeAverage}}            
+		                    <div class="col-lg-2 pull-right dollarAmt">
+		                        <!-- <div class="col-lg-6 DollarText">One Time:</div> -->
+		                        <!-- <div class="col-lg-6 font24 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div> -->
+		                    </div>
+		                    {{/if}}
+						</div>				            
 	                </div>
 	            </div>
-	           	<div>
-	           		
+	           	<div class="row tablePrice">
+	           		<div class="col-lg-3 text-center">
+	           			
+	           		</div>
+	           		<div class="col-lg-3 pull-right text-center font24">
+	           			Height
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center font24">
+	           			Average
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center font24">
+	           			Low
+	           		</div>
+	           	</div>
+
+	           	<div class="row tablePrice">
+	           		<div class="col-lg-3 text-center font24">
+	           			One Time:
+	           		</div>
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			{{oneTimeAverage}}
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			{{oneTimeAverage}}
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			{{oneTimeLow}}
+	           		</div>
+	           	</div>
+
+	           	<div class="row tablePrice text-center">
+	           		<div class="col-lg-3 font24">
+	           			Monthly:
+	           		</div>
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			${{montlyHigh}}
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			${{montlyAverage}}
+	           		</div>
+
+	           		<div class="col-lg-3 pull-right text-center fontRed font24">
+	           			${{montlyLow}}
+	           		</div>
 	           	</div>
 		    	<div class="">
 				   {{#if body}}
