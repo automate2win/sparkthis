@@ -28,7 +28,8 @@
 				                	{{> UI.dynamic template=getTemplate data=..}}
 				                {{/each}}
 				            </div> -->
-						<div class="col-lg-12 backGrey">
+						<div class="col-lg-12 ">
+							<div class="col-lg-12 backGrey">
 							
 		                    <div class="col-lg-3">
 		                        <div class="arrows">        
@@ -60,68 +61,78 @@
 		                        <!-- <div class="col-lg-6 font24 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div> -->
 		                    </div>
 		                    {{/if}}
-						</div>				            
+						</div>	
+						</div>			            
 	                </div>
 	            </div>
-	           	<div class="row tablePrice">
-	           		<div class="col-lg-3 text-center">
-	           			
-	           		</div>
-	           		<div class="col-lg-3 pull-right text-center font24">
-	           			Height
-	           		</div>
+	            <div class="row ">
+		           	<div class="col-lg-10 tablePrice">
+		           		<div class="col-lg-3 text-center">
+		           			
+		           		</div>
+		           		<div class="col-lg-3 pull-right text-center font24">
+		           			Height
+		           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center font24">
-	           			Average
-	           		</div>
+		           		<div class="col-lg-3 pull-right text-center font24">
+		           			Average
+		           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center font24">
-	           			Low
-	           		</div>
-	           	</div>
+		           		<div class="col-lg-3 pull-right text-center font24">
+		           			Low
+		           		</div>
+		           	</div>
 
-	           	<div class="row tablePrice">
-	           		<div class="col-lg-3 text-center font24">
-	           			One Time:
-	           		</div>
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			{{oneTimeAverage}}
-	           		</div>
+		           	<div class=" col-lg-10 ">
+			           	<div class=" col-lg-12 tablePrice">
+			           		<div class="col-lg-3 text-center font24 borderBottom">
+			           			One Time:
+			           		</div>
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 borderBottom">
+			           			${{oneTimeAverage}}
+			           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			{{oneTimeAverage}}
-	           		</div>
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 borderBottom borderRight">
+			           			${{oneTimeAverage}}
+			           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			{{oneTimeLow}}
-	           		</div>
-	           	</div>
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 borderBottom borderRight">
+			           			${{oneTimeLow}}
+			           		</div>
+			           	</div>
+		           	</div>
 
-	           	<div class="row tablePrice text-center">
-	           		<div class="col-lg-3 font24">
-	           			Monthly:
-	           		</div>
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			${{montlyHigh}}
-	           		</div>
+		           	<div class=" col-lg-10 ">
+			           	<div class=" col-lg-12 tablePrice">
+			           		<div class="col-lg-3 font24 text-center">
+			           			Monthly:
+			           		</div>
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 ">
+			           			${{montlyHigh}}
+			           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			${{montlyAverage}}
-	           		</div>
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 borderRight">
+			           			${{montlyAverage}}
+			           		</div>
 
-	           		<div class="col-lg-3 pull-right text-center fontRed font24">
-	           			${{montlyLow}}
-	           		</div>
-	           	</div>
-		    	<div class="">
+			           		<div class="col-lg-3 pull-right text-center fontRed font24 borderRight">
+			           			${{montlyLow}}
+			           		</div>
+			           	</div>
+		           	</div>
+	            	
+	            </div>
+		    	<!-- <div class="">
 				   {{#if body}}
 				      {{> UI.dynamic template=post_body}}
 				    {{/if}}
-	    	 	</div>
+	    	 	</div> -->
 	    	</div>
 	    </div>
-	      <!-- 
-	    {{> UI.dynamic template=comment_form}}
+  </div><!-- 
+	    {{#if body}}
+	      {{> UI.dynamic template=post_body}}
+	    {{/if}} -->
+	   <!--  {{> UI.dynamic template=comment_form}}
 	    {{> UI.dynamic template=comment_list}}   -->
-  </div>
 </template>
