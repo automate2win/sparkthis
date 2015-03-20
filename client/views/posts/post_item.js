@@ -36,6 +36,7 @@ Template[getTemplate('popup_post')].events({
         // var selector = $(event.currentTarget).parent().parent().parent().find(".popEach");
         // var selector = $(this.currentTarget).parent().parent().parent();
         $(".popEach").css("display","none");
+        $(".nonPost").css("display","block");
         // console.log(selector)
     }
 })

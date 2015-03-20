@@ -55,6 +55,7 @@ Template[getTemplate('popup_post')].events({
       });
       // Earn.insert({"PostId":cursor._id, "Onetime":data});
       $(".popEach").css("display","none");
+      $(".nonPost").css("display","block");
       // console.log(cursor._id+"onetime")
   },
   'click .popup_post_Monthly': function(e, instance) {
@@ -72,5 +73,7 @@ Template[getTemplate('popup_post')].events({
         // console.log(data)
       });
       $(".popEach").css("display","none");
+      $(".nonPost").css("display","block");
+      
   }
 });

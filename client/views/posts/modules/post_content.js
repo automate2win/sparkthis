@@ -67,6 +67,7 @@ Template[getTemplate('postContent')].events({
         // app.test = tpl;
         // console.log(tpl);
         $(tpl.find(".popEach")).css("display","block");
+        $(tpl.find(".nonPost")).css("display","none");
         // var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")
         // console.log(cursor)
         Session.set("currentPost",this);
