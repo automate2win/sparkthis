@@ -142,31 +142,52 @@ postSchemaObject = {
   earn: {
     type: [Object],
     optional: true,
-    blackbox: true
+    blackbox: true,
+    autoform: {
+      omit: true
+    }
   },
   montlyHigh: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   montlyAverage: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   montlyLow: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   oneTimeHigh: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   oneTimeAverage: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   oneTimeLow: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   },
   status: {
     type: Number,
@@ -225,7 +246,10 @@ postSchemaObject = {
   },
   amount: {
     type: Number,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   }
 };
 
