@@ -53,6 +53,7 @@ Template[getTemplate('popup_post')].events({
         console.log(err)
         console.log(data);
       });
+      // Earn.insert({"PostId":cursor._id, "Onetime":data});
       $(".popEach").css("display","none");
       // console.log(cursor._id+"onetime")
   },
@@ -67,8 +68,8 @@ Template[getTemplate('popup_post')].events({
       }
       // Posts.update({"_id":cursor._id},{$set:{"Monthly":data}});
       Meteor.call("updatePost",cursor._id,data,"Monthly",function(err,data){
-        console.log(err)
-        console.log(data)
+        // console.log(err)
+        // console.log(data)
       });
       $(".popEach").css("display","none");
   }

@@ -41,17 +41,42 @@ Template[getTemplate('postContent')].helpers({
   },
   commentsDisplayText: function(){
     return this.comments == 1 ? i18n.t('comment') : i18n.t('comments');
+  },
+  "amount": function(){
+    return "$"+(Posts.findOne(this._id).amount||1);
   }
 });
 Template[getTemplate('postContent')].events({
-    'click .arrows .downarrow_postContent': function(){
+    'click .arrows .downarrow_postContent': function(events){
         console.log("down")
+        var post = this;
+        events.preventDefault();
+        if(!Meteor.user()){
+          Router.go('atSignIn');
+          flashMessage(i18n.t("please_log_in_first"), "info");
+        }
+        Meteor.call('downvotePost', post, function(error, result){
+          trackEvent("post downvoted", {'_id': post._id});
+        });
+
+
+
+
     },
     'click .arrows .uparrow_postContent': function(events){
         // var cursor = $(event.currentTarget).parent().parent().parent()
         // console.log(cursor)
         Session.set("currentPost",this);
         $(".popEach").css("display","block");
+        var post = this;
+        events.preventDefault();
+        if(!Meteor.user()){
+          Router.go('atSignIn');
+          flashMessage(i18n.t("please_log_in_first"), "info");
+        }
+        Meteor.call('upvotePost', post, function(error, result){
+          trackEvent("post upvoted", {'_id': post._id});
+        });
     },
     'click .dollarAmt': function(){
         console.log(this)

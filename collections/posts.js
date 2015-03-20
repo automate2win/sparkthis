@@ -135,6 +135,39 @@ postSchemaObject = {
       omit: true
     }
   },
+  // earn: {
+  //   type: Object, // XXX
+  //   optional: true
+  // },
+  earn: {
+    type: [Object],
+    optional: true,
+    blackbox: true
+  },
+  montlyHigh: {
+    type: Number,
+    optional: true
+  },
+  montlyAverage: {
+    type: Number,
+    optional: true
+  },
+  montlyLow: {
+    type: Number,
+    optional: true
+  },
+  oneTimeHigh: {
+    type: Number,
+    optional: true
+  },
+  oneTimeAverage: {
+    type: Number,
+    optional: true
+  },
+  oneTimeLow: {
+    type: Number,
+    optional: true
+  },
   status: {
     type: Number,
     optional: true,
@@ -189,6 +222,10 @@ postSchemaObject = {
         });
       }
     }
+  },
+  amount: {
+    type: Number,
+    optional: true
   }
 };
 
@@ -284,9 +321,13 @@ Posts.before.insert(function (userId, doc) {
 
 Posts.before.update(function (userId, doc, fieldNames, modifier, options) {
   // if body is being modified, update htmlBody too
+  // console.log(Meteor.isServer , modifier.$set,  modifier.$set.body)
+  console.log(modifier)
   if (Meteor.isServer && modifier.$set && modifier.$set.body) {
     modifier.$set.htmlBody = sanitize(marked(modifier.$set.body));
   }
+  // console.log(doc)
+
 });
 
 postAfterSubmitMethodCallbacks.push(function (post) {

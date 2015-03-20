@@ -36,15 +36,19 @@
                     </div>
                     <div class="col-lg-2 post-avatars pull-right media-right list-inline">
                             {{> postAvatars}}   
-                    </div>                    
+                    </div>  
+                    {{#if montlyAverage}}                  
                     <div class="col-lg-2 pull-right dollarAmt">
                         <div class="col-lg-6 DollarText">Monthly:</div>
-                        <div class="col-lg-6 font28 dollarAmts">$1</div>
-                    </div>              
+                        <div class="col-lg-6 font28 dollarAmts">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div>
+                    </div> 
+                    {{/if}} 
+                    {{#if oneTimeAverage}}            
                     <div class="col-lg-2 pull-right dollarAmt">
                         <div class="col-lg-6 DollarText">One Time:</div>
-                        <div class="col-lg-6 font28 dollarAmts">$1</div>
+                        <div class="col-lg-6 font28 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div>
                     </div>
+                    {{/if}}
                 </div>
             </div>
         </div>

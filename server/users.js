@@ -88,10 +88,78 @@ Meteor.methods({
   },
   updatePost: function(id,data,type){
     // Meteor.setUpdate();
-    console.log(id)
-    console.log(data)
-    console.log(type)
-    var abc = Posts.update({"_id":id},{$set:{"aaaaa":data}});
+    var abc, averageAmount, collList, collAmount, montlyHigh, montlyAverage, montlyLow, oneTimeHigh, oneTimeAverage, oneTimeLow, Average;
+    // console.log(id)
+    // console.log(data)
+    // console.log(type)
+    var newdata = parseInt(data[0].amount);
+    var flag = Earn.findOne({"PostId":id});
+    if(type == "Onetime")
+    {
+        if(!flag){
+          averageAmount = newdata;
+          Earn.insert({"PostId":id, "OnetimeList" :data,"onetimeAmount":averageAmount});
+        }else{
+          if(flag.onetimeAmount && flag.OnetimeList){
+            flagonetimeAmount = parseInt(flag.onetimeAmount)
+            flagOnetimeList = flag.OnetimeList.length;
+            averageAmount = (flagonetimeAmount + newdata) / (flagOnetimeList + 1)
+            Earn.update({"PostId":id},{$push:{ "OnetimeList" :data}});
+            Earn.update({"PostId":id},{$set:{ "onetimeAmount" :averageAmount}});
+          }else{
+            averageAmount = newdata;
+            Earn.update({"PostId":id},{$push:{ "OnetimeList" :data}});
+            Earn.update({"PostId":id},{$set:{ "onetimeAmount" :averageAmount}});
+          }
+        }
+    }
+    else{
+        if(!flag){
+          averageAmount = newdata;
+          Earn.insert({"PostId":id, "MonthlyList" :data,"monthlyAmount":averageAmount});
+        }else{
+          if(flag.monthlyAmount && flag.MonthlyList){
+            flagmonthlyAmount = parseInt(flag.monthlyAmount)
+            flagMonthlyList = flag.MonthlyList.length;
+            averageAmount = (flagmonthlyAmount + newdata) / (flagMonthlyList + 1)
+            Earn.update({"PostId":id},{$push:{ "MonthlyList" :data}});
+            Earn.update({"PostId":id},{$set:{ "monthlyAmount" :averageAmount}});
+          }else{
+            averageAmount = newdata;
+            Earn.update({"PostId":id},{$push:{ "MonthlyList" :data}});
+            Earn.update({"PostId":id},{$set:{ "monthlyAmount" :averageAmount}});
+          }
+        }
+    }
+
+    var cursor = Posts.findOne({"_id":id})
+    if(cursor.montlyHigh)
+        (cursor.montlyHigh > parseInt(data[0].amount)) ? montlyHigh =  cursor.montlyHigh : montlyHigh =  parseInt(data[0].amount)
+    else
+      montlyHigh = parseInt(data[0].amount);
+
+    if(cursor.montlyLow)
+        (cursor.montlyLow < parseInt(data[0].amount)) ? montlyLow =  cursor.montlyLow: montlyLow =  parseInt(data[0].amount)
+    else
+      montlyLow = parseInt(data[0].amount)
+
+    if(cursor.oneTimeHigh)
+        (cursor.oneTimeHigh > parseInt(data[0].amount)) ? oneTimeHigh =  cursor.oneTimeHigh: oneTimeHigh =  parseInt(data[0].amount)
+    else
+      oneTimeHigh = parseInt(data[0].amount)
+
+    if(cursor.oneTimeLow)
+        (cursor.oneTimeLow < parseInt(data[0].amount)) ? oneTimeLow =  cursor.oneTimeLow: oneTimeLow =  parseInt(data[0].amount)
+    else
+      oneTimeLow = parseInt(data[0].amount)
+
+    if(type == "Onetime")
+    {
+      Posts.update({"_id":id},{$set:{"oneTimeAverage":averageAmount,"oneTimeHigh":oneTimeHigh,"oneTimeLow":oneTimeLow}});
+    }else{
+      Posts.update({"_id":id},{$set:{"montlyAverage":averageAmount,"montlyHigh":montlyHigh,"montlyLow":montlyLow}});
+    }
+    // Posts.update({"_id":id},{$set:{"montlyHigh":montlyHigh,"montlyLow":montlyLow,"oneTimeHigh":oneTimeHigh,"oneTimeLow":oneTimeLow}});
     return abc;
 
   }
