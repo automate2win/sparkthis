@@ -88,10 +88,13 @@ Meteor.methods({
   },
   updatePost: function(id,data,type){
     // Meteor.setUpdate();
-    console.log(id)
-    console.log(data)
-    console.log(type)
-    var abc = Posts.update({"_id":id},{$set:{"aaaaa":data}});
+    // console.log(id)
+    // console.log(data)
+    var value = data[0]["amount"];
+    console.log("to update " +value)
+    var abc = Posts.update({"_id":id},{$set:{"amount":value}});
+    // console.log(abc);
+    // console.log(Posts.findOne(id))
     return abc;
 
   }

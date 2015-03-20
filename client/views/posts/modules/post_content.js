@@ -41,6 +41,9 @@ Template[getTemplate('postContent')].helpers({
   },
   commentsDisplayText: function(){
     return this.comments == 1 ? i18n.t('comment') : i18n.t('comments');
+  },
+  "amount": function(){
+    return "$"+(Posts.findOne(this._id).amount||1);
   }
 });
 Template[getTemplate('postContent')].events({
