@@ -3,7 +3,7 @@
             {{> UI.dynamic template=getTemplate data=..}}
         {{/each}}
         <div class="post-info">
-            <h3 class="post-heading font28">
+            <h3 class="post-heading font28 fontBlack">
                 {{#each postHeading}}
                     {{> UI.dynamic template=getTemplate data=..}}
                 {{/each}}
@@ -39,14 +39,14 @@
                     </div>  
                     {{#if montlyAverage}}                  
                     <div class="col-lg-2 pull-right dollarAmt">
-                        <div class="col-lg-6 DollarText">Monthly:</div>
-                        <div class="col-lg-6 font28 dollarAmts">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div>
+                        <div class="col-lg-6 DollarText fontRed">Monthly:</div>
+                        <div class="col-lg-6 font28 dollarAmts fontRed">${{#if montlyAverage}}{{montlyAverage}}{{else}}0{{/if}}</div>
                     </div> 
                     {{/if}} 
                     {{#if oneTimeAverage}}            
                     <div class="col-lg-2 pull-right dollarAmt">
-                        <div class="col-lg-6 DollarText">One Time:</div>
-                        <div class="col-lg-6 font28 dollarAmts">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div>
+                        <div class="col-lg-6 DollarText fontRed">One Time:</div>
+                        <div class="col-lg-6 font28 dollarAmts fontRed">${{#if oneTimeAverage}}{{oneTimeAverage}}{{else}}0{{/if}}</div>
                     </div>
                     {{/if}}
                 </div>
