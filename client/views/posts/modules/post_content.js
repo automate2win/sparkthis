@@ -47,13 +47,35 @@ Template[getTemplate('postContent')].helpers({
   }
 });
 Template[getTemplate('postContent')].events({
-    'click .arrows .downarrow_postContent': function(){
+    'click .arrows .downarrow_postContent': function(events){
         console.log("down")
+        var post = this;
+        events.preventDefault();
+        if(!Meteor.user()){
+          Router.go('atSignIn');
+          flashMessage(i18n.t("please_log_in_first"), "info");
+        }
+        Meteor.call('downvotePost', post, function(error, result){
+          trackEvent("post downvoted", {'_id': post._id});
+        });
+
+
+
+
     },
     'click .arrows .uparrow_postContent': function(events){
         // var cursor = $(event.currentTarget).parent().parent().parent()
         // console.log(cursor)
         Session.set("currentPost",this);
         $(".popEach").css("display","block");
+        var post = this;
+        events.preventDefault();
+        if(!Meteor.user()){
+          Router.go('atSignIn');
+          flashMessage(i18n.t("please_log_in_first"), "info");
+        }
+        Meteor.call('upvotePost', post, function(error, result){
+          trackEvent("post upvoted", {'_id': post._id});
+        });
     },
 })

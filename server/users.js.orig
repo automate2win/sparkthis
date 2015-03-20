@@ -96,6 +96,31 @@ Meteor.methods({
     var flag = Earn.findOne({"PostId":id});
     if(type == "Onetime")
     {
+<<<<<<< HEAD
+      if(cursor.montlyHigh)
+          (cursor.montlyHigh > parseInt(data[0].amount)) ? array.montlyHigh =  cursor.montlyHigh : array.montlyHigh =  parseInt(data[0].amount)
+      else
+          array.montlyHigh = parseInt(data[0].amount);
+
+      if(cursor.montlyLow)
+          (cursor.montlyLow < parseInt(data[0].amount)) ? array.montlyLow =  cursor.montlyLow: array.montlyLow =  parseInt(data[0].amount)
+      else
+        array.montlyLow = parseInt(data[0].amount)
+
+      if(cursor.oneTimeHigh)
+          (cursor.oneTimeHigh > parseInt(data[0].amount)) ? array.oneTimeHigh =  cursor.oneTimeHigh: array.oneTimeHigh =  parseInt(data[0].amount)
+      else
+        array.oneTimeHigh = parseInt(data[0].amount)
+
+      if(cursor.oneTimeLow)
+          (cursor.oneTimeLow < parseInt(data[0].amount)) ? array.oneTimeLow =  cursor.oneTimeLow: array.oneTimeLow =  parseInt(data[0].amount)
+      else
+        array.oneTimeLow = parseInt(data[0].amount)
+        // abc = Posts.update({"_id":id},{$set:{"earn":array}});
+
+        console.log(array)
+        Posts.update({"_id":id},{$push: {"earn" :{"montlyHigh":array.montlyHigh,"montlyLow":array.montlyLow}}});     
+=======
         if(!flag){
           averageAmount = newdata;
           Earn.insert({"PostId":id, "OnetimeList" :data,"onetimeAmount":averageAmount});
@@ -158,6 +183,7 @@ Meteor.methods({
       Posts.update({"_id":id},{$set:{"oneTimeAverage":averageAmount,"oneTimeHigh":oneTimeHigh,"oneTimeLow":oneTimeLow}});
     }else{
       Posts.update({"_id":id},{$set:{"montlyAverage":averageAmount,"montlyHigh":montlyHigh,"montlyLow":montlyLow}});
+>>>>>>> 9ae43c07e8ef43acd494ad4398458682d089472b
     }
     // Posts.update({"_id":id},{$set:{"montlyHigh":montlyHigh,"montlyLow":montlyLow,"oneTimeHigh":oneTimeHigh,"oneTimeLow":oneTimeLow}});
     return abc;

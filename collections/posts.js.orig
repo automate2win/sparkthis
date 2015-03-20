@@ -139,6 +139,32 @@ postSchemaObject = {
   //   type: Object, // XXX
   //   optional: true
   // },
+<<<<<<< HEAD
+  // montlyHigh: {
+  //   type: Number,
+  //   optional: true
+  // },
+  // montlyAverage: {
+  //   type: Number,
+  //   optional: true
+  // },
+  // montlyLow: {
+  //   type: Number,
+  //   optional: true
+  // },
+  // oneTimeHigh: {
+  //   type: Number,
+  //   optional: true
+  // },
+  // oneTimeAverage: {
+  //   type: Number,
+  //   optional: true
+  // },
+  // oneTimeLow: {
+  //   type: Number,
+  //   optional: true
+  // },
+=======
   earn: {
     type: [Object],
     optional: true,
@@ -168,6 +194,7 @@ postSchemaObject = {
     type: Number,
     optional: true
   },
+>>>>>>> 9ae43c07e8ef43acd494ad4398458682d089472b
   status: {
     type: Number,
     optional: true,
@@ -226,7 +253,11 @@ postSchemaObject = {
   amount: {
     type: Number,
     optional: true
-  }
+  },
+  earn: {
+    type: [Object],
+    optional: true,
+  },
 };
 
 // add any extra properties to postSchemaObject (provided by packages for example)
