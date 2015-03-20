@@ -88,10 +88,80 @@ Meteor.methods({
   },
   updatePost: function(id,data,type){
     // Meteor.setUpdate();
-    console.log(id)
-    console.log(data)
-    console.log(type)
-    var abc = Posts.update({"_id":id},{$set:{"aaaaa":data}});
+    var abc, amount, collList, collAmount, montlyHigh, montlyAverage, montlyLow, oneTimeHigh, oneTimeAverage, oneTimeLow, Average;
+    // console.log(id)
+    // console.log(data)
+    // console.log(type)
+    // var newdata = parseInt(data[0].amount);
+    // var flag = Earn.findOne({"PostId":id});
+    // if(type == "Onetime")
+    // {
+    //   collList = "OnetimeList"
+    //   collLAmount = "onetimeAmount";
+    //   if(flag){
+    //     flagonetimeAmount = parseInt(flag.onetimeAmount)
+    //     flagOnetimeList = flag.OnetimeList.length
+    //   }
+    // }else{
+    //   collList = "MonthlyList"
+    //   collLAmount = "monthlyAmount"
+    //   if(flag){
+    //     flagonetimeAmount = parseInt(flag.onetimeAmount)
+    //     flagOnetimeList = flag.OnetimeList.length
+    //   }
+    // }
+    // console.log(collList)
+    // // var flag = Earn.findOne({"PostId":id});
+    // if(!flag)
+    //   abc = Earn.insert({"PostId":id, collList :data,collLAmount:newdata});
+    // else{
+    //   amount = (flagonetimeAmount + newdata) / (flagOnetimeList + 1)
+    //   Earn.update({"PostId":id},{$push:{ collList :data}});
+    //   abc = Earn.update({"PostId":id},{$set:{ collLAmount :amount}});
+    // }
+    // if(type == "Onetime")
+    // {
+    //   Average = "oneTimeAverage";
+    // }else{
+    //   Average = "montlyAverage";
+    // }
+    
+
+    var cursorPosts = Posts.findOne({"_id":id});
+    var cursor = cursorPosts.earn;
+    var array = [];
+    if(!cursor){
+      array.montlyHigh = parseInt(data[0].amount);
+      array.montlyLow = parseInt(data[0].amount);
+      array.oneTimeHigh = parseInt(data[0].amount);
+      array.oneTimeLow = parseInt(data[0].amount);
+      abc = Posts.update({"_id":id},{$set:{"earn":array}});
+    }else
+    {
+      if(cursor.montlyHigh)
+          (cursor.montlyHigh > parseInt(data[0].amount)) ? array.montlyHigh =  cursor.montlyHigh : array.montlyHigh =  parseInt(data[0].amount)
+      else
+          array.montlyHigh = parseInt(data[0].amount);
+
+      if(cursor.montlyLow)
+          (cursor.montlyLow < parseInt(data[0].amount)) ? array.montlyLow =  cursor.montlyLow: array.montlyLow =  parseInt(data[0].amount)
+      else
+        array.montlyLow = parseInt(data[0].amount)
+
+      if(cursor.oneTimeHigh)
+          (cursor.oneTimeHigh > parseInt(data[0].amount)) ? array.oneTimeHigh =  cursor.oneTimeHigh: array.oneTimeHigh =  parseInt(data[0].amount)
+      else
+        array.oneTimeHigh = parseInt(data[0].amount)
+
+      if(cursor.oneTimeLow)
+          (cursor.oneTimeLow < parseInt(data[0].amount)) ? array.oneTimeLow =  cursor.oneTimeLow: array.oneTimeLow =  parseInt(data[0].amount)
+      else
+        array.oneTimeLow = parseInt(data[0].amount)
+        // abc = Posts.update({"_id":id},{$set:{"earn":array}});
+        console.log(array)
+        Posts.update({"_id":id},{$set:{"earn.montlyHigh":array.montlyHigh,"earn.montlyLow":array.montlyLow,"earn.oneTimeHigh":array.oneTimeHigh,"earn.oneTimeLow":array.oneTimeLow}});     
+    }
+    
     return abc;
 
   }
