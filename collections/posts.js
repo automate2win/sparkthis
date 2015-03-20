@@ -144,30 +144,30 @@ postSchemaObject = {
     optional: true,
     blackbox: true
   },
-  // montlyHigh: {
-  //   type: Number,
-  //   optional: true
-  // },
-  // montlyAverage: {
-  //   type: Number,
-  //   optional: true
-  // },
-  // montlyLow: {
-  //   type: Number,
-  //   optional: true
-  // },
-  // oneTimeHigh: {
-  //   type: Number,
-  //   optional: true
-  // },
-  // oneTimeAverage: {
-  //   type: Number,
-  //   optional: true
-  // },
-  // oneTimeLow: {
-  //   type: Number,
-  //   optional: true
-  // },
+  montlyHigh: {
+    type: Number,
+    optional: true
+  },
+  montlyAverage: {
+    type: Number,
+    optional: true
+  },
+  montlyLow: {
+    type: Number,
+    optional: true
+  },
+  oneTimeHigh: {
+    type: Number,
+    optional: true
+  },
+  oneTimeAverage: {
+    type: Number,
+    optional: true
+  },
+  oneTimeLow: {
+    type: Number,
+    optional: true
+  },
   status: {
     type: Number,
     optional: true,
