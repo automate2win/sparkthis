@@ -186,4 +186,4 @@ Meteor.setUpdate = function(){
     //console.log("complete " +Meteor.setArray.length);
 }
 
-process.env.MAIL_URL = 'smtp://cwilson%40sparkthis.co:NBUqT7xAFLepYUTA5xEnzg@smtp.mandrillapp.com:587';
+// process.env.MAIL_URL = 'smtp://cwilson%40sparkthis.co:NBUqT7xAFLepYUTA5xEnzg@smtp.mandrillapp.com:587';
