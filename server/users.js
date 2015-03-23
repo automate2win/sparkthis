@@ -90,21 +90,27 @@ Meteor.methods({
     // Meteor.setUpdate();
     var abc, averageAmount, collList, collAmount, montlyHigh, montlyAverage, montlyLow, oneTimeHigh, oneTimeAverage, oneTimeLow, Average;
     // console.log(id)
-    // console.log(data)
+    console.log(data)
     // console.log(type)
-    var newdata = parseInt(data[0].amount);
+    var newdata = parseInt(data.amount);
     var flag = Earn.findOne({"PostId":id});
     if(type == "Onetime")
     {
         if(!flag){
           averageAmount = newdata;
-          Earn.insert({"PostId":id, "OnetimeList" :data,"onetimeAmount":averageAmount});
+          Earn.insert({"PostId":id, "onetimeAmount":averageAmount});
+          Earn.update({"PostId":id},{$push:{ "OnetimeList" :data}});
+          // Earn.insert({"PostId":id, "OnetimeList" :data,"onetimeAmount":averageAmount});
         }else{
           if(flag.onetimeAmount && flag.OnetimeList){
-            flagonetimeAmount = parseInt(flag.onetimeAmount)
-            flagOnetimeList = flag.OnetimeList.length;
-            averageAmount = (flagonetimeAmount + newdata) / (flagOnetimeList + 1)
+            
+            // flagonetimeAmount = parseInt(flag.onetimeAmount)
+            // flagOnetimeList = flag.OnetimeList.length;
+            // averageAmount = (flagonetimeAmount + newdata) / (flagOnetimeList + 1)
             Earn.update({"PostId":id},{$push:{ "OnetimeList" :data}});
+
+            var cursorEarn = Earn.findOne({"PostId":id});
+            averageAmount = findMedian(cursorEarn.OnetimeList);
             Earn.update({"PostId":id},{$set:{ "onetimeAmount" :averageAmount}});
           }else{
             averageAmount = newdata;
@@ -116,13 +122,17 @@ Meteor.methods({
     else{
         if(!flag){
           averageAmount = newdata;
-          Earn.insert({"PostId":id, "MonthlyList" :data,"monthlyAmount":averageAmount});
+          Earn.insert({"PostId":id, "monthlyAmount":averageAmount});
+          Earn.update({"PostId":id},{$push:{ "MonthlyList" :data}});
         }else{
           if(flag.monthlyAmount && flag.MonthlyList){
-            flagmonthlyAmount = parseInt(flag.monthlyAmount)
-            flagMonthlyList = flag.MonthlyList.length;
-            averageAmount = (flagmonthlyAmount + newdata) / (flagMonthlyList + 1)
+            // flagmonthlyAmount = parseInt(flag.monthlyAmount)
+            // flagMonthlyList = flag.MonthlyList.length;
+            // averageAmount = (flagmonthlyAmount + newdata) / (flagMonthlyList + 1)
+            // averageAmount = findMedian(flag.MonthlyList);
             Earn.update({"PostId":id},{$push:{ "MonthlyList" :data}});
+            var cursorEarn = Earn.findOne({"PostId":id});
+            averageAmount = findMedian(cursorEarn.MonthlyList);
             Earn.update({"PostId":id},{$set:{ "monthlyAmount" :averageAmount}});
           }else{
             averageAmount = newdata;
@@ -134,24 +144,24 @@ Meteor.methods({
 
     var cursor = Posts.findOne({"_id":id})
     if(cursor.montlyHigh)
-        (cursor.montlyHigh > parseInt(data[0].amount)) ? montlyHigh =  cursor.montlyHigh : montlyHigh =  parseInt(data[0].amount)
+        (cursor.montlyHigh > parseInt(data.amount)) ? montlyHigh =  cursor.montlyHigh : montlyHigh =  parseInt(data.amount)
     else
-      montlyHigh = parseInt(data[0].amount);
+      montlyHigh = parseInt(data.amount);
 
     if(cursor.montlyLow)
-        (cursor.montlyLow < parseInt(data[0].amount)) ? montlyLow =  cursor.montlyLow: montlyLow =  parseInt(data[0].amount)
+        (cursor.montlyLow < parseInt(data.amount)) ? montlyLow =  cursor.montlyLow: montlyLow =  parseInt(data.amount)
     else
-      montlyLow = parseInt(data[0].amount)
+      montlyLow = parseInt(data.amount)
 
     if(cursor.oneTimeHigh)
-        (cursor.oneTimeHigh > parseInt(data[0].amount)) ? oneTimeHigh =  cursor.oneTimeHigh: oneTimeHigh =  parseInt(data[0].amount)
+        (cursor.oneTimeHigh > parseInt(data.amount)) ? oneTimeHigh =  cursor.oneTimeHigh: oneTimeHigh =  parseInt(data.amount)
     else
-      oneTimeHigh = parseInt(data[0].amount)
+      oneTimeHigh = parseInt(data.amount)
 
     if(cursor.oneTimeLow)
-        (cursor.oneTimeLow < parseInt(data[0].amount)) ? oneTimeLow =  cursor.oneTimeLow: oneTimeLow =  parseInt(data[0].amount)
+        (cursor.oneTimeLow < parseInt(data.amount)) ? oneTimeLow =  cursor.oneTimeLow: oneTimeLow =  parseInt(data.amount)
     else
-      oneTimeLow = parseInt(data[0].amount)
+      oneTimeLow = parseInt(data.amount)
 
     if(type == "Onetime")
     {
@@ -187,3 +197,28 @@ Meteor.setUpdate = function(){
 }
 
 // process.env.MAIL_URL = 'smtp://cwilson%40sparkthis.co:NBUqT7xAFLepYUTA5xEnzg@smtp.mandrillapp.com:587';
+
+
+
+
+function findMedian(data) {// get median from array
+
+    // extract the .values field and sort the resulting array
+    var m = data.map(function(v) {
+        return v.amount;
+    }).sort(function(a, b) {
+        return a - b;
+    });
+    // console.log(m)
+    var middle = Math.floor((m.length - 1) / 2); // NB: operator precedence
+    if (m.length % 2) {
+        return m[middle];
+    } else {
+        middle++
+        return m[middle];
+    }
+}
+
+
+//abc = Earn.findOne()
+//a = abc.OnetimeList

@@ -43,12 +43,13 @@ Template[getTemplate('popup_post')].events({
   'click .popup_post_Onetime': function(e, instance) {
       var cursor = Session.get("currentPost");
       var amount = $("#popup_post_Amount").val();
-      var data = [];
-      if(amount){
-        data.push({
-            "amount": amount
-        });
-      }
+      var data = {};
+      data.amount = amount;
+      // if(amount){
+      //   data.push({
+      //       "amount": amount
+      //   });
+      // }
       Meteor.call("updatePost",cursor._id,data,"Onetime",function(err,data){
         console.log(err)
         console.log(data);
@@ -60,13 +61,15 @@ Template[getTemplate('popup_post')].events({
   },
   'click .popup_post_Monthly': function(e, instance) {
       var cursor = Session.get("currentPost");
-      var amount = $("#popup_post_Amount").val();
-      var data = [];
-      if(amount){
-        data.push({
-            "amount": amount
-        });
-      }
+      var amount = parseInt($("#popup_post_Amount").val());
+      var data = {};
+      data.amount = amount;
+      // var data = [];
+      // if(amount){
+      //   data.push({
+      //       "amount": amount
+      //   });
+      // }
       // Posts.update({"_id":cursor._id},{$set:{"Monthly":data}});
       Meteor.call("updatePost",cursor._id,data,"Monthly",function(err,data){
         // console.log(err)
@@ -75,5 +78,17 @@ Template[getTemplate('popup_post')].events({
       $(".popEach").css("display","none");
       $(".nonPost").css("display","block");
       
+  }
+});
+
+
+Template[getTemplate('postsHead')].helpers({
+  Title: function () {
+    var flagTagline = getSetting('tagline')
+    console.log(flagTagline)
+    if(flagTagline)
+      return true
+    else
+      return false
   }
 });
