@@ -1,16 +1,17 @@
 <template name="userMenu">
-  {{#if isLoggedIn}}
+  <ul class="list-inline">
     <div class="user-menu dropdown header-submodule">
-            <a class="view dropdown-top-level" href="/">About</a>
-            <div class="dropdown-menu">
-              <ul role="menu" aria-labelledby="dLabel">
-                <li><a class="account-link marginRight10" href="" >How it Works</a></li>
-                <li><a class="account-link marginRight10" href="">About Us</a></li>
-                <li><a class="account-link marginRight10" href="">Blog</a></li>
-                <!-- <li><a href="{{pathFor route='signOut'}}">{{_ "sign_out"}}</a></li> -->
-              </ul>
-            </div>
-          </div>
+      <a class="view dropdown-top-level" href="/">About</a>
+      <div class="dropdown-menu">
+        <ul role="menu" aria-labelledby="dLabel">
+          <li><a class="account-link marginRight10" href="http://sparkthis.wpengine.com/how-it-works/" >How it Works</a></li>
+          <li><a class="account-link marginRight10" href="https://automatetowin.teamwork.com/tasks/3393143">About Us</a></li>
+          <li><a class="account-link marginRight10" href="http://sparkthis.wpengine.com/blog/">Blog</a></li>
+          <!-- <li><a href="{{pathFor route='signOut'}}">{{_ "sign_out"}}</a></li> -->
+        </ul>
+      </div>
+    </div>
+  {{#if isLoggedIn}}
     <div class="user-menu dropdown header-submodule">
       <a class="view dropdown-top-level" href="/">{{name}}</a>
       <div class="dropdown-menu">
@@ -22,19 +23,17 @@
       </div>
     </div>
   {{else}}
-      <ul class="list-inline">
         <li>
-          <div class="user-menu dropdown header-submodule">
+          <!-- <div class="user-menu dropdown header-submodule">
             <a class="view dropdown-top-level" href="/">About</a>
             <div class="dropdown-menu">
               <ul role="menu" aria-labelledby="dLabel">
                 <li><a class="account-link marginRight10" href="http://sparkthis.wpengine.com/how-it-works/" >How it Works</a></li>
                 <li><a class="account-link marginRight10" href="https://automatetowin.teamwork.com/tasks/3393143">About Us</a></li>
                 <li><a class="account-link marginRight10" href="http://sparkthis.wpengine.com/blog/">Blog</a></li>
-                <!-- <li><a href="{{pathFor route='signOut'}}">{{_ "sign_out"}}</a></li> -->
               </ul>
             </div>
-          </div>
+          </div> -->
           </li>
           <li>            
               <a class="account-link sign-in" href="{{pathFor route='atSignUp'}}">{{_ "sign_up"}}</a>
@@ -48,7 +47,7 @@
           <li>
               <a class="account-link marginRight10" href="" id="twitterLogin">Twitter</a>
           </li> -->
-      </ul>
   {{/if}}
+      </ul>
 
 </template>
