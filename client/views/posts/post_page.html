@@ -18,6 +18,9 @@
                   <div class="col-lg-12 grey">                
               <div class="col-lg-12 font24 fontBlack">
                 {{title}}
+                {{#if canEdit this}}
+                  | <a href="{{pathFor route='post_edit' _id=_id}}" class="edit-link goto-edit">{{_ "edit"}}</a>
+                {{/if}}
               </div>
               <div class="col-lg-12 ">
                 Posted {{timeAgo postedAt}} by {{displayName userId}}
