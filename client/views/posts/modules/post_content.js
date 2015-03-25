@@ -61,7 +61,7 @@ Template[getTemplate('postContent')].events({
     },
     'click .arrows .uparrow_postContent': function(events,tpl){
         // app.test = tpl;
-        console.log(this);
+        // console.log(this);
         $(tpl.find(".popEach")).css("display","block");
         $(".backGrey").css("display","none");
         // var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")

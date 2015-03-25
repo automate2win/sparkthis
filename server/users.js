@@ -89,9 +89,9 @@ Meteor.methods({
   updatePost: function(id,data,type){
     // Meteor.setUpdate();
     var abc, averageAmount, collList, collAmount, montlyHigh, montlyAverage, montlyLow, oneTimeHigh, oneTimeAverage, oneTimeLow, Average;
-    // console.log(id)
+    console.log(id)
     console.log(data)
-    // console.log(type)
+    console.log(type)
     var newdata = parseInt(data.amount);
     var flag = Earn.findOne({"PostId":id});
     if(type == "Onetime")
@@ -143,6 +143,7 @@ Meteor.methods({
     }
 
     var cursor = Posts.findOne({"_id":id})
+    console.log(cursor);
     if(cursor.montlyHigh)
         (cursor.montlyHigh > parseInt(data.amount)) ? montlyHigh =  cursor.montlyHigh : montlyHigh =  parseInt(data.amount)
     else
