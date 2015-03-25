@@ -58,16 +58,12 @@ Template[getTemplate('postContent')].events({
         Meteor.call('downvotePost', post, function(error, result){
           trackEvent("post downvoted", {'_id': post._id});
         });
-
-
-
-
     },
     'click .arrows .uparrow_postContent': function(events,tpl){
         // app.test = tpl;
-        // console.log(tpl);
+        console.log(this);
         $(tpl.find(".popEach")).css("display","block");
-        $(tpl.find(".nonPost")).css("display","none");
+        $(".backGrey").css("display","none");
         // var cursor = $(event.currentTarget).parent().parent().parent().parent().find(".popEach")
         // console.log(cursor)
         Session.set("currentPost",this);
