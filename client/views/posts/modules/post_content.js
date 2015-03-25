@@ -44,6 +44,14 @@ Template[getTemplate('postContent')].helpers({
     },
     "amount": function(){
       return "$"+(Posts.findOne(this._id).amount||1);
+    },
+    "votedbyme": function (event) {
+      console.log(this._id)
+      var cursorFlag = Meteor.users.findOne({"votes.upvotedPosts.itemId":this._id})
+      if(cursorFlag)
+        return true;
+      else
+        return false;
     }
 });
 Template[getTemplate('postContent')].events({
