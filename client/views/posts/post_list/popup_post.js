@@ -4,14 +4,13 @@ Template[getTemplate('popup_post')].events({
       var element = e.currentTarget;
       // var element = $(enement).parent().prev().children().val()
       var cursor = Session.get("currentPost");
-      var amount = parseInt($("#popup_post_Amount").val());
-      var amount = $(element).parent().prev().children().val()
-      var data = {};
+      var amount = parseInt($(element).parent().prev().children().val());
       if(isNaN(amount))
       {
         console.log(amount)
         return;
       }
+      var data = {};
       data.amount = parseInt(amount) ;
       // if(amount){
       //   data.push({
@@ -36,13 +35,12 @@ Template[getTemplate('popup_post')].events({
   'click .popup_post_Monthly': function(e, instance) {
       var element = e.currentTarget;
       var cursor = Session.get("currentPost");
-      var amount = parseInt($("#popup_post_Amount").val());
+      var amount = parseInt($(element).parent().prev().prev().children().val());
       if(isNaN(amount))
       {
         console.log(amount)
         return;
       }
-      var amount = $(element).parent().prev().prev().children().val()
       var data = {};
       data.amount = amount;
       Meteor.call("updatePost",cursor._id,data,"Monthly",function(err,data){
