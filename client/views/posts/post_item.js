@@ -11,6 +11,7 @@ Template[getTemplate('post_item')].helpers({
   getTemplate: function () {
     return getTemplate(this.template);
   },
+  
   moduleContext: function () { // not used for now
     var module = this;
     module.templateClass = camelToDash(this.template) + ' ' + this.position + ' cell';

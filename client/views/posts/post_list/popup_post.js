@@ -2,8 +2,13 @@
 Template[getTemplate('popup_post')].events({
   'click .popup_post_Onetime': function(e, instance) {
       var cursor = Session.get("currentPost");
-      var amount = $("#popup_post_Amount").val();
+      var amount = parseInt($("#popup_post_Amount").val());
       var data = {};
+      if(isNaN(amount))
+      {
+        console.log(amount)
+        return;
+      }
       data.amount = parseInt(amount) ;
       // if(amount){
       //   data.push({
@@ -28,6 +33,11 @@ Template[getTemplate('popup_post')].events({
   'click .popup_post_Monthly': function(e, instance) {
       var cursor = Session.get("currentPost");
       var amount = parseInt($("#popup_post_Amount").val());
+      if(isNaN(amount))
+      {
+        console.log(amount)
+        return;
+      }
       var data = {};
       data.amount = amount;
       // var data = [];
