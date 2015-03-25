@@ -93,15 +93,27 @@
                       One Time:
                     </div>
                     <div class="col-lg-3 pull-right text-center fontRed font24 borderBottom">
-                      ${{oneTimeAverage}}
+                      {{#if oneTimeAverage}}
+                        ${{oneTimeAverage}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
 
                     <div class="col-lg-3 pull-right text-center fontRed font24 borderBottom borderRight">
-                      ${{oneTimeAverage}}
+                      {{#if oneTimeAverage}}
+                          ${{oneTimeAverage}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
 
                     <div class="col-lg-3 pull-right text-center fontRed font24 borderBottom borderRight">
-                      ${{oneTimeLow}}
+                      {{#if oneTimeLow}}
+                          ${{oneTimeLow}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
                   </div>
                 </div>
@@ -112,15 +124,27 @@
                       Monthly:
                     </div>
                     <div class="col-lg-3 pull-right text-center fontRed font24 ">
-                      ${{montlyHigh}}
+                      {{#if montlyHigh}}
+                          ${{montlyHigh}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
 
                     <div class="col-lg-3 pull-right text-center fontRed font24 borderRight">
-                      ${{montlyAverage}}
+                      {{#if montlyAverage}}
+                          ${{montlyAverage}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
 
                     <div class="col-lg-3 pull-right text-center fontRed font24 borderRight">
-                      ${{montlyLow}}
+                      {{#if montlyLow}}
+                          ${{montlyLow}}
+                      {{else}}
+                          Vote
+                      {{/if}}
                     </div>
                   </div>
                 </div>
